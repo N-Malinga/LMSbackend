@@ -23,6 +23,6 @@ namespace LMS.Infrastructure
             }
         }
 
-        public DbSet<Book> Books { get; set; } = null!;
+        public DbSet<Book> Books { get; set; }
     }
 }
