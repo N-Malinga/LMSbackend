@@ -94,5 +94,22 @@ namespace LMS.API.Controllers
             }
             return NoContent();
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateBook(int id, [FromBody] BookDTO bookDto)
+        {
+            if (bookDto == null)
+            {
+                return BadRequest("Book data is required.");
+            }
+
+            var updatedBook = await _bookService.UpdateBookAsync(id, bookDto);
+            if (updatedBook == null)
+            {
+                return NotFound($"Book with ID {id} not found or deleted.");
+            }
+
+            return Ok(updatedBook);
+        }
     }
 }

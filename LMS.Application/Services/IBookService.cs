@@ -16,5 +16,6 @@ namespace LMS.Application.Services
         Task<int> GetAuthorCountAsync();
         Task<bool> DeleteBookByIdAsync(int id);
         Task<bool> HardDeleteBookByIdAsync(int id);
+        Task<BookDTO> UpdateBookAsync(int id, BookDTO bookDto);
     }
 }

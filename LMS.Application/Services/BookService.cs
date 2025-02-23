@@ -116,6 +116,31 @@ namespace LMS.Application.Services
             return true;
         }
 
+        public async Task<BookDTO> UpdateBookAsync(int id, BookDTO bookDto)
+        {
+            var book = await _context.Books.FirstOrDefaultAsync(b => b.id == id);
+            if (book == null || book.isDeleted)
+            {
+                return null; // Book not found or deleted
+            }
+
+            book.title = bookDto.title;
+            book.author = bookDto.author;
+            book.description = bookDto.description;
+            book.imgLink = bookDto.imgLink;
+
+            await _context.SaveChangesAsync();
+
+            return new BookDTO
+            {
+                id = book.id,
+                title = book.title,
+                author = book.author,
+                description = book.description,
+                imgLink = book.imgLink
+            };
+        }
+
 
     }
 }
