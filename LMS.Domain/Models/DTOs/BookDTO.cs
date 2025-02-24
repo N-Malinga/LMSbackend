@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
-namespace LMS.Domain.Models
+namespace LMS.Domain.Models.DTOs
 {
-    public class Book
+    public class BookDTO
     {
         [Key]
         public int id { get; set; }
@@ -15,6 +15,5 @@ namespace LMS.Domain.Models
         public string author { get; set; }
         public string description { get; set; }
         public string imgLink { get; set; }
-        public bool isDeleted { get; set; } = false;
     }
 }

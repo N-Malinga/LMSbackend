@@ -1,3 +1,4 @@
+using LMS.Application.Services;
 using LMS.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +12,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<DataContext>(options => options.UseSqlite(connectionString));
+builder.Services.AddDbContext<DataContext>(options => options.UseSqlite(connectionString), ServiceLifetime.Scoped);
+
+builder.Services.AddScoped<IBookService, BookService>();
 
 var app = builder.Build();
 
