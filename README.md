@@ -16,16 +16,19 @@ Ensure you have the following installed on your system:
 git clone <backend-repository-url>
 cd <backend-repository-folder>
 
-### **2. Install Dependencies**
+### **2. Open the Project in Visual Studio*
 ```sh
-npm install
+Open LibroMate.sln in Visual Studio.
 
-### **3. Configure API Base URL**
-```sh
-const API_BASE_URL = 'https://localhost:7061/api/Book';
 
-### **4. Run the Development Server**
+### **3. Install Dependencies**
 ```sh
-npm run dev
+Restore missing NuGet packages (Visual Studio should handle this automatically).
+
+### **4. Run Database Migrations**
+If database migrations are not applied, run:
+```sh
+dotnet ef database update
+
 
 
