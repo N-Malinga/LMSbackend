@@ -16,6 +16,18 @@ builder.Services.AddDbContext<DataContext>(options => options.UseSqlite(connecti
 
 builder.Services.AddScoped<IBookService, BookService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost", builder =>
+    {
+        builder.WithOrigins("http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "http://localhost:5176")
+               .AllowAnyHeader()
+               .AllowAnyMethod()
+               .AllowCredentials();
+    });
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -26,6 +38,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowSpecificOrigins");
+
+app.UseCors("AllowLocalhost");
 
 app.UseAuthorization();
 

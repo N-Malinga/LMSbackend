@@ -20,16 +20,6 @@ namespace LMS.API.Controllers
             _bookService = bookService;
         }
 
-        //[HttpPost]
-        //public async Task<ActionResult<List<Book>>> AddBooks(Book book)
-        //{
-        //    _bookService.Books.Add(book);
-        //    await _bookService.SaveChangesAsync();
-
-        //    return Ok(await _bookService.Books.ToListAsync());
-        //}
-
-
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BookDTO>>> GetBooks()
         {
