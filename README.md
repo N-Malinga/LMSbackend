@@ -15,3 +15,17 @@ Ensure you have the following installed on your system:
 ```sh
 git clone <backend-repository-url>
 cd <backend-repository-folder>
+
+### **2. Install Dependencies**
+```sh
+npm install
+
+### **3. Configure API Base URL**
+```sh
+const API_BASE_URL = 'https://localhost:7061/api/Book';
+
+### **4. Run the Development Server**
+```sh
+npm run dev
+
+
